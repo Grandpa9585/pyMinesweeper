@@ -1,5 +1,6 @@
 # Required for the game
-getKey
+getkey
+# pynput
 numpy
 rich
 
