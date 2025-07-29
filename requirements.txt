@@ -1,0 +1,7 @@
+# Required for the game
+getKey
+numpy
+rich
+
+# Testing
+pytest
