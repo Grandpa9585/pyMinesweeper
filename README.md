@@ -1,14 +1,14 @@
 # pyMinesweeper
 Python Implementation of minesweeper
 
-install dependencies via 
-
+install dependencies via  
 pip3 install -r requirements.txt
 
-play game via
-
+play game via  
 python3.12 -m minesweeper width height numberOfBombs
 
 WASD to move  
 F to flag  
 Enter to reveal a cell  
+
+Not tested at all, tied deeply to linux
