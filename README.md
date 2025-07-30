@@ -9,6 +9,6 @@ play game via
 
 python3.12 -m minesweeper width height numberOfBombs
 
-WASD to move 
-F to flag 
-Enter to reveal a cell 
+WASD to move  
+F to flag  
+Enter to reveal a cell  
