@@ -131,19 +131,19 @@ class View():
             for j in range(model.width):
                 cell = model.grid[i][j]
                 if (i, j) == model.selected_cell:
-                    print('🟦', end='')
+                    print('▒', end='')
                 elif cell.is_flagged:
-                    print('🚩', end='')
+                    print('░', end='')
                 elif cell.is_hidden:
-                    print('🧱', end='')
+                    print('█', end='')
                 elif cell.is_bomb:
-                    print('💣', end='')
+                    print('▓', end='')
                 elif cell.num_surround_bombs != 0:
-                    print(
-                        self.number_to_emoji[cell.num_surround_bombs], end='')
-                    # print(cell.num_surround_bombs, ' ', end='')
+                    # print(
+                    # self.number_to_emoji[cell.num_surround_bombs], end='')
+                    print(cell.num_surround_bombs, end='')
                 else:
-                    print('🟩', end='')
+                    print(' ', end='')
             print('|')
         print('|', *['_' for _ in range(model.width)], '|', sep='')
 
@@ -159,8 +159,9 @@ class Control:
     def run(self):
         self.view.clear_screen()
         self.view.view(self.model)
+
         while self.model.status == Status.IN_PLAY:
-            key = getkey()  # type: ignore
+            key: str = getkey()  # type: ignore
             if key == keys.ENTER:  # type: ignore
                 self.model.reveal_cell(
                     self.model.selected_cell[0], self.model.selected_cell[1])

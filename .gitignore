@@ -1,1 +1,6 @@
 /venv
+
+/minesweeper/__pycache__
+/minesweeper/model/__pycache__
+/minesweeper/view/__pycache__
+/minesweeper/control/__pycache__
