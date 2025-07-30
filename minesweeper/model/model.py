@@ -45,9 +45,9 @@ class Model:
                 if (di, dj) == (0, 0):
                     continue
 
-                try:
+                if 0 <= i + di < self.height and 0 <= j + dj < self.width:
                     cell: Cell = self._grid[i + di][j + dj]
-                except IndexError:
+                else:
                     continue
 
                 if cell.is_bomb:
