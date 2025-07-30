@@ -78,6 +78,8 @@ class Model:
 
     def auto_clear(self) -> None:
         cell: Cell = self._grid[self._cursor.x][self._cursor.y]
+        if cell.is_hidden:
+            return None
         if cell.num_bombs == self._count_flagged(self._cursor.x, self._cursor.y):
             self._clear_surrounding(self._cursor.x, self._cursor.y)
 
@@ -86,7 +88,10 @@ class Model:
             for dj in range(-1, 2):
                 if (di, dj) == (0, 0):
                     continue
-                self._cursor = Cursor(i + di, j + dj)
+                if 0 <= i + di < self.height and 0 <= j + dj < self.width:
+                    self._cursor = Cursor(i + di, j + dj)
+                else:
+                    continue
                 self.reveal_cell()
         self._cursor = Cursor(i, j)
 
@@ -96,7 +101,10 @@ class Model:
             for dj in range(-1, 2):
                 if (di, dj) == (0, 0):
                     continue
-                ret += 1 if self._grid[i + di][j + dj].is_flagged else 0
+                if 0 <= i + di < self.height and 0 <= j + dj < self.width:
+                    ret += 1 if self._grid[i + di][j + dj].is_flagged else 0
+                else:
+                    continue
         return ret
 
     def _auto_reveal(self, i: int, j: int) -> None:
