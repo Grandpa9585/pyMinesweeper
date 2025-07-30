@@ -1,0 +1,3 @@
+# Required for the game
+getkey
+rich
